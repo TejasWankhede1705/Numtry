@@ -1,0 +1,28 @@
+.information-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .information-block {
+    padding: 20px;
+   
+   
+    width: 30%;
+  }
+  
+  .information-heading {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .information-image {
+    width: 100%;
+    height: auto;
+  
+    margin-bottom: 10px;
+  }
+  
+  .information-content {
+    line-height: 1.2;
+  }
+  

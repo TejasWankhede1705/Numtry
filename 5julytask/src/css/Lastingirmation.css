@@ -1,0 +1,23 @@
+.lastingirmation-container {
+    display: flex;
+    align-items: center;
+  
+  
+    overflow: hidden;
+  }
+  
+  .image-container {
+    flex: 1;
+   
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .text-container {
+    flex: 1;
+    padding: 20px;
+  }
+  

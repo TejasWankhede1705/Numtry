@@ -1,0 +1,21 @@
+.lastinformation-container {
+    display: flex;
+    align-items: center;
+  
+    overflow: hidden;
+  }
+  
+  .text-container {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .image-container {
+    flex: 1;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }
+  

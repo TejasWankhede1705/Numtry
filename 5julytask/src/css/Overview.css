@@ -1,0 +1,24 @@
+.overview h1, .overview h2 {
+    margin: 0;
+    padding: 10px 0;
+  }
+  
+  .overview h1 {
+    font-size: 2em;
+  }
+  
+  .overview h2 {
+    font-size: 1.5em;
+  }
+  .div{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+  }
+
+  .overview {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    font-size: 2em; /* Large font size */
+    height: fit-content;
+    
+  }
