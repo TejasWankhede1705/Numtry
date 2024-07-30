@@ -4,6 +4,7 @@ import '../css/Form.css';
 
 const Form = () => {
   const [formData, setFormData] = useState({
+    fullName: '',
     username: '',
     email: '',
     password: '',
@@ -26,11 +27,14 @@ const Form = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    const usernameRegex = /^[0-9A-Za-z]{6,16}$/;
+    const usernameRegex = /^(?=.*[A-Z])[0-9A-Za-z]{6,16}$/;
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    const passwordRegex =/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
+    const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
     const mobileRegex = /^\d{10}$/;
 
+    if (!formData.fullName) {
+      newErrors.fullName = 'Full Name is required.';
+    }
     if (!usernameRegex.test(formData.username)) {
       newErrors.username = 'Username must contain at least one capital letter.';
     }
@@ -50,11 +54,13 @@ const Form = () => {
 
   const sendOtp = (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
+
     const otp = generateOtp();
     setFormData({ ...formData, generatedOtp: otp });
 
     emailjs.send('service_TejasWankhede', 'template_7x3i6d2', {
-      to_name: formData.username,
+      to_name: formData.fullName,
       to_email: formData.email,
       message: `Your OTP is ${otp}`,
     }, 'JNSBrfPZPLbLx1w14')
@@ -90,8 +96,20 @@ const Form = () => {
 
   return (
     <div className="form-container">
-      <h1>OTP Verification Form</h1>
+      <h1>Registration Form</h1>
       <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Full Name:</label>
+          <input
+            type="text"
+            className="form-control"
+            name="fullName"
+            value={formData.fullName}
+            onChange={handleChange}
+            required
+          />
+          {errors.fullName && <p className="error-message">{errors.fullName}</p>}
+        </div>
         <div className="form-group">
           <label>Username:</label>
           <input
